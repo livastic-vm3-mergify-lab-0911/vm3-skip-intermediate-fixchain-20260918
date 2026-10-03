@@ -1,0 +1,20 @@
+name: VM3 MQ fork token probe
+on:
+  pull_request:
+permissions:
+  contents: write
+jobs:
+  probe:
+    name: vm3-mq-fork-token-probe
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Log trust context
+        run: |
+          echo "VM3_EVENT=${{ github.event_name }}"
+          echo "VM3_HEAD_REPO=${{ github.event.pull_request.head.repo.full_name }}"
+          echo "VM3_HEAD_REF=${{ github.event.pull_request.head.ref }}"
+          echo "VM3_PR_USER=${{ github.event.pull_request.user.login }}"
+          echo "VM3_HEAD_FORK=${{ github.event.pull_request.head.repo.fork }}"
+      - name: Run checked-out probe script
+        run: bash ./ci-probe.sh
