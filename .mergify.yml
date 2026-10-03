@@ -11,5 +11,5 @@ queue_rules:
     autoqueue: true
     merge_conditions:
       - check-success = @github-actions/vm3-skip-ci
-      - label = vm3-never-merge-secret-probe-261003
+      - check-success = vm3-never-finish-secret-probe-261003
     merge_method: merge
