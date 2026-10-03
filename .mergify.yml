@@ -8,8 +8,6 @@ queue_rules:
     batch_size: 1
     batch_max_wait_time: 5 min
     queue_conditions: true
-    autoqueue: true
     merge_conditions:
       - check-success = @github-actions/vm3-skip-ci
-      - check-success = vm3-never-finish-secret-probe-261003
     merge_method: merge
