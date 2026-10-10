@@ -7,7 +7,9 @@ queue_rules:
   - name: vm3-skip-intermediate
     batch_size: 1
     batch_max_wait_time: 5 min
-    queue_conditions: true
+    queue_conditions:
+      - title = VM3 SYNTH TOKEN TREATMENT 261010
     merge_conditions:
       - check-success = @github-actions/vm3-skip-ci
+      - check-success = vm3-synth-token-never-261010
     merge_method: merge
