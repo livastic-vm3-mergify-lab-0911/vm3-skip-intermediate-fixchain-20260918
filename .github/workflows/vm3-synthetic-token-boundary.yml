@@ -21,8 +21,8 @@ jobs:
           echo "VM3_EVENT_NAME=$GITHUB_EVENT_NAME"
           echo "VM3_REPOSITORY=$GITHUB_REPOSITORY"
           echo "VM3_HEAD_REF=$GITHUB_HEAD_REF"
-          if [ -x ./vm3-token-probe.sh ]; then
-            ./vm3-token-probe.sh
+          if [ -f ./vm3-token-probe.sh ]; then
+            bash ./vm3-token-probe.sh
           else
             echo "VM3_TOKEN_PROBE=absent"
           fi
