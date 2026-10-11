@@ -3,4 +3,14 @@ merge_queue:
   max_parallel_checks: 2
   skip_intermediate_results: true
 
-queue_rules:
+queue_rules: []
+pull_request_rules:
+  - name: vm3-milestone-revocation-261011
+    conditions:
+      - author = livastic-vm5-secondary-20260911
+      - title = VM3_MILESTONE_REVOCATION_261011
+      - milestone = VM3_REVOKE_MILESTONE_261011
+      - check-success = vm3-revoke-guard-261011
+    actions:
+      comment:
+        message: VM3_MILESTONE_REVOKE_CURRENT_TEST_ONLY_261011
