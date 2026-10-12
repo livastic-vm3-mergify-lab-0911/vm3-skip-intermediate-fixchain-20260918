@@ -4,19 +4,3 @@ merge_queue:
   skip_intermediate_results: true
 
 queue_rules:
-  - name: vm3-dummy-secret-draft-261012
-    queue_conditions:
-      - base = vm3-synth-secret-target-261012
-      - author = livastic-vm5-secondary-20260911
-      - title = VM3_SYNTH_SECRET_TREATMENT_261012
-    merge_conditions:
-      - check-success = vm3-NEVER-PASS-SECRET-261012
-pull_request_rules:
-  - name: VM3 controlled external-fork dummy secret validator
-    conditions:
-      - base = vm3-synth-secret-target-261012
-      - author = livastic-vm5-secondary-20260911
-      - title = VM3_SYNTH_SECRET_TREATMENT_261012
-    actions:
-      queue:
-        name: vm3-dummy-secret-draft-261012
